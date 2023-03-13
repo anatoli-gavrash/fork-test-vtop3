@@ -48,6 +48,19 @@
   background-repeat: no-repeat;
 }
 
+// Модальное окно с ошибкой валидации поля
+.popup-error {
+  @include ellipsis(2);
+  position: absolute;
+  min-width: 188px;
+  border-radius: 5px;
+  font-family: $main-font;
+  font-size: 12px;
+  color: $error-text-color;
+  background-color: rgba(255, 255, 255, 0.6);
+  z-index: 1;
+}
+
 // Анимация
 .animation-bubbling { animation: bubbling 0.5s ease-in forwards; }
 .animation-shake { animation: shake 0.15s linear 2 forwards; }
