@@ -17,5 +17,11 @@
     letter-spacing: 0.5px;
     writing-mode: vertical-rl;
     transform: rotate(180deg);
+
+    @media (max-width: 390px) {
+      font-size: 44px;
+      line-height: 46px;
+      margin-right: 6px;
+    }
   }
 }

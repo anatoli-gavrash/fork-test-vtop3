@@ -3,7 +3,15 @@
   max-width: 800px;
   padding: 60px 67px 59px 68px;
   background-color: $main-bg-color;
-  
+
+  @media (max-width: 666px) {
+    padding: 30px 27px 29px 28px;
+  }
+
+  @media (max-width: 390px) {
+    padding: 0;
+  }
+
   // Обёртка для контента
   &__content {
     display: flex;
