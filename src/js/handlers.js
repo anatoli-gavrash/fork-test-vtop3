@@ -1,5 +1,6 @@
-// Обработчики событий
+import modalRegistered from './modal-registered.js';
 
+// Обработчики событий
 const handlers = () => {
   // Форма, текстовые поля, submit button
   const form = document.querySelector('.sign-up-right__form');
@@ -8,16 +9,20 @@ const handlers = () => {
 
   const inputHandler = (evnt) => {
     const input = evnt.target;
-    
+
   };
 
   const submitButtonHandler = (evnt) => {
-    
+    if (false) {
+
+    } else {
+      modalRegistered();
+    }
   };
 
   const formHandler = (evnt) => {
     evnt.preventDefault();
-    
+
   };
 
   // Обработчик на инпуты
