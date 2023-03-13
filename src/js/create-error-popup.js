@@ -3,14 +3,14 @@ import errorsData from "./errors-data.js";
 /* Создаёт popup для каждого поля с ошибкой.
 Принимает input к которому нужен popup */
 const createErrorPopup = (input) => {
-  const parent = input.parentElement;
-  const grandpa = parent.parentElement;
-
   // Проверка приходящих данных
   if (!HTMLInputElement.prototype.isPrototypeOf(input)) {
     throw new TypeError();
   }
 
+  const parent = input.parentElement;
+  const grandpa = parent.parentElement;
+  
   // Координаты и размеры блока с полем и его родителя.
   const getCoordinates = () => {
     return {

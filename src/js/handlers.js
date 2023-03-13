@@ -12,9 +12,9 @@ const handlers = () => {
   const inputHandler = (evnt) => {
     const input = evnt.target;
     const parent = input.parentElement;
-    const valid = validation.self(input);
+    const isValid = validation.self(input);
 
-    if (!valid) {
+    if (!isValid) {
 
     } else {
 
@@ -24,9 +24,9 @@ const handlers = () => {
   const submitButtonHandler = (evnt) => {
     const button = evnt.target;
     const formData = new FormData(form);
-    const fullValid = validation.full(formData);
+    const isFullValid = validation.full(formData);
 
-    if (!fullValid.valid) {
+    if (!isFullValid.valid) {
       // Добавляет анимацию.
       addAnimation(button, 'animation-shake', 0, true);
     } else {
@@ -40,9 +40,9 @@ const handlers = () => {
 
     const form = evnt.target;
     const formData = new FormData(form);
-    const fullValid = validation.full(formData);
+    const isFullValid = validation.full(formData);
 
-    if (!fullValid.valid) {
+    if (!isFullValid.valid) {
       
     } else {
 

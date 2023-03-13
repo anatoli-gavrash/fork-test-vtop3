@@ -1,11 +1,11 @@
 // Функция добавляет анимацию, задержку и удаляет по завершении.
 
-const addAnimation = (tag, animationName, delay = 0, remove = false) => {
+const addAnimation = (tag, animationName, delay = 0, isRemove = false) => {
   // Проверка приходящих данных
   if (!HTMLElement.prototype.isPrototypeOf(tag)
       || !(typeof animationName === 'string')
       || !(typeof delay === 'number')
-      || !(typeof remove === 'boolean'))
+      || !(typeof isRemove === 'boolean'))
   {
     throw new TypeError();
   }
@@ -15,7 +15,7 @@ const addAnimation = (tag, animationName, delay = 0, remove = false) => {
   tag.classList.add(animationName);
   
   // Удаляем по завершении если нужно
-  if (remove) {
+  if (isRemove) {
     tag.addEventListener('animationend', (evnt) => {
       evnt.target.classList.remove(animationName);
     });
