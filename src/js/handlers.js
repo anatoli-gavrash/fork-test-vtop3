@@ -1,3 +1,4 @@
+import addAnimation from './add-animation.js';
 import modalRegistered from './modal-registered.js';
 
 // Обработчики событий
@@ -13,9 +14,12 @@ const handlers = () => {
   };
 
   const submitButtonHandler = (evnt) => {
-    if (false) {
-
+    const button = evnt.target;
+    if (true) {
+      // Добавляет анимацию. Принимает тэг и имя класса с анимацией.
+      addAnimation(button, 'animation-shake', 0, true);
     } else {
+      // Показываем сообщение об окончании регистрации.
       modalRegistered();
     }
   };
