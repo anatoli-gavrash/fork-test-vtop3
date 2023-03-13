@@ -59,12 +59,32 @@
         flex-basis: 48.865%;
         min-width: 188px;
         min-height: 42px;
+        opacity: 1;
         background-image: linear-gradient(0deg, $field-dash-color 1px, transparent 1px);
-
+  
         @media (max-width: 586px) {
           flex-basis: 100%;
         }
-        
+
+        &::after {
+          content: '';
+          display: block;
+          position: absolute;
+          top: 54%;
+          right: 0;
+          width: 11px;
+          height: 8px;
+          background-image: url(../images/svg/tick.svg);
+          background-position: center;
+          background-repeat: no-repeat;
+          opacity: 0;
+          transition: opacity 0.5s;
+        }
+
+        &.valid::after {
+          opacity: 1;
+        }
+
         // Лейбл с описанием поля
         &-label {
           @include ellipsis(1);
@@ -129,6 +149,15 @@
               color: $normal-text-color;
             }
           }
+        }
+      }
+
+      // Красные буквы и подчеркивание если поле не валидно
+      &__field.error {
+        background-image: linear-gradient(0deg, $error-dash-color 2px, transparent 2px);
+
+        .registration__field-input {
+          color: $error-text-color;
         }
       }
     }
