@@ -1,8 +1,11 @@
 import selectsData from './selects-data.js';
 import fillingSelect from './filling-select.js';
 import createErrorPopup from './create-error-popup.js';
+import addAnimation from './add-animation.js';
 
 function singUp() {
+  // Все блоки с полями.
+  const registrationFieldBlocks = document.querySelectorAll('.registration__field');
   // Все текстовые инпуты.
   const inputCollection = document.querySelectorAll('.registration__field-input');
   // Селекты для наполнения данными.
@@ -18,5 +21,9 @@ function singUp() {
   fillingSelect(selectDay, 'birthday__select-option', 1, 31);
   fillingSelect(selectMonth, 'birthday__select-option', selectsData.months, selectsData.months.length - 1);
   fillingSelect(selectYear, 'birthday__select-option', 1900, 2023);
+  // Добавление анимации и задержки к полям.
+  registrationFieldBlocks.forEach((tag, index) => {
+    addAnimation(tag, 'animation-bubbling', index / 10 + 0.1);
+  });
 }
 singUp();
