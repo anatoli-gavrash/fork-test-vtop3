@@ -1,6 +1,8 @@
-import validation from './validation.js';
-import addAnimation from './add-animation.js';
-import modalRegistered from './modal-registered.js';
+import validation from "./validation.js";
+import classSwitcher from "./class-switcher.js";
+import showPopup from "./show-popup.js";
+import addAnimation from "./add-animation.js";
+import modalRegistered from "./modal-registered.js";
 
 // Обработчики событий
 const handlers = () => {
@@ -14,10 +16,13 @@ const handlers = () => {
     const parent = input.parentElement;
     const isValid = validation.self(input);
 
+    // Если валидация провалена, выделить поле красным и показать ошибку
     if (!isValid) {
-
+      classSwitcher(parent, 'valid', 'error');
+      showPopup(input, true);
     } else {
-
+      classSwitcher(parent, 'error', 'valid');
+      showPopup(input, false);
     }
   };
 
@@ -26,11 +31,27 @@ const handlers = () => {
     const formData = new FormData(form);
     const isFullValid = validation.full(formData);
 
+    // Если валидация провалена.
     if (!isFullValid.valid) {
-      // Добавляет анимацию.
+      // Сравниваем поля с провалившими валидацию именами.
+      inputCollection.forEach((input) => {
+        const parent = input.parentElement;
+        const inputName = input.getAttribute('name');
+
+        // Если нашли совпадения, выделить красным и показать ошибку.
+        if (isFullValid.failing.hasOwnProperty([inputName])) {
+          classSwitcher(parent, 'valid', 'error');
+          showPopup(input, true);
+        } else {
+          classSwitcher(parent, 'error', 'valid');
+          showPopup(input, false);
+        }
+      });
+
+      // Добавляет анимацию дрожания к кнопке.
       addAnimation(button, 'animation-shake', 0, true);
     } else {
-      // Показываем сообщение об окончании регистрации.
+      // Иначе отображаем окончание регистрации.
       modalRegistered();
     }
   };
@@ -42,10 +63,9 @@ const handlers = () => {
     const formData = new FormData(form);
     const isFullValid = validation.full(formData);
 
-    if (!isFullValid.valid) {
+    // Отправляем форму, если валидация прошла успешно.
+    if (isFullValid.valid) {
       
-    } else {
-
     }
   };
 
