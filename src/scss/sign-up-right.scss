@@ -13,4 +13,25 @@
     height: 411px;
     width: 411px;
   }
+
+  // Верхняя часть с текстом
+  &__top {
+    
+    &-title {
+      font-family: $main-font;
+      font-size: 22px;
+      font-weight: 500;
+      line-height: 26px;
+      letter-spacing: -0.39px;
+      color: $normal-text-color;
+    }
+
+    &-text {
+      font-family: $main-font;
+      font-size: 14px;
+      line-height: 16px;
+      letter-spacing: -0.32px;
+      color: $normal-text-color;
+    }
+  }
 }
