@@ -48,6 +48,12 @@
   background-repeat: no-repeat;
 }
 
+// Анимация
+.animation-bubbling { animation: bubbling 0.5s ease-in forwards; }
+.animation-shake { animation: shake 0.15s linear 2 forwards; }
+.animation-show { animation: show 0.8s ease-in forwards; }
+.animation-show-and-hide { animation: show-and-hide 5s ease-in backwards; }
+
 // Скрытие элементов
 .display-none {
   display: none;
