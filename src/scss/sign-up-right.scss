@@ -169,4 +169,30 @@
       }
     }
   }
+
+  &__registered {
+    position: absolute;
+    top: 50%;
+    left: 64px;
+    margin-top: 3px;
+    transform: translateY(-50%);
+
+    &-title {
+      font-family: $main-font;
+      font-size: 22px;
+      font-weight: 500;
+      line-height: 26px;
+      letter-spacing: -0.44px;
+      color: $normal-text-color;
+    }
+
+    &-text {
+      margin-top: 10px;
+      font-family: $main-font;
+      font-size: 14px;
+      line-height: 16px;
+      letter-spacing: -0.36px;
+      color: $normal-text-color;
+    }
+  }
 }
