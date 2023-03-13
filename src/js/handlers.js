@@ -1,3 +1,4 @@
+import validation from './validation.js';
 import addAnimation from './add-animation.js';
 import modalRegistered from './modal-registered.js';
 
@@ -10,13 +11,23 @@ const handlers = () => {
 
   const inputHandler = (evnt) => {
     const input = evnt.target;
+    const parent = input.parentElement;
+    const valid = validation.self(input);
 
+    if (!valid) {
+
+    } else {
+
+    }
   };
 
   const submitButtonHandler = (evnt) => {
     const button = evnt.target;
-    if (true) {
-      // Добавляет анимацию. Принимает тэг и имя класса с анимацией.
+    const formData = new FormData(form);
+    const fullValid = validation.full(formData);
+
+    if (!fullValid.valid) {
+      // Добавляет анимацию.
       addAnimation(button, 'animation-shake', 0, true);
     } else {
       // Показываем сообщение об окончании регистрации.
@@ -27,15 +38,22 @@ const handlers = () => {
   const formHandler = (evnt) => {
     evnt.preventDefault();
 
+    const form = evnt.target;
+    const formData = new FormData(form);
+    const fullValid = validation.full(formData);
+
+    if (!fullValid.valid) {
+      
+    } else {
+
+    }
   };
 
-  // Обработчик на инпуты
+  // Обработчик на инпуты, submit кнопку, форму
   inputCollection.forEach((input) => {
     input.addEventListener('input', inputHandler);
   });
-  // Обработчик на submit кнопку
   submitButton.addEventListener('click', submitButtonHandler);
-  // Обработчик формы
   form.addEventListener('submit', formHandler);
 };
 
