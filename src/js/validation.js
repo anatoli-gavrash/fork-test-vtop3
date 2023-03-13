@@ -3,12 +3,21 @@ import errorsData from "./errors-data.js";
 // Валидация полей
 const validation = {
   self(input) { // Проверка одного поля на валидность. Принимает input.
+    // Проверка приходящих данных
+    if (!HTMLInputElement.prototype.isPrototypeOf(input)) {
+      throw new TypeError();
+    }
+
     const inputName = input.getAttribute('name');
     return errorsData[inputName].validation(input.value);
   },
   full(form) { // Проверка всей формы на валидность, принимает объект FormData.
-    const result = {};
+    // Проверка приходящих данных
+    if (!FormData.prototype.isPrototypeOf(form)) {
+      throw new TypeError();
+    }
 
+    const result = {};
     for (let formKey of form) {
       // Проверяем, если в объекте с ошибками есть валидация для поля.
       if (errorsData[formKey[0]]) {
