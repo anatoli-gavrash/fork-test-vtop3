@@ -1,0 +1,16 @@
+// Правый блок
+.sign-up-right {
+  overflow: hidden;
+  position: relative;
+  padding: 40px 22px 33px 21px;
+  background-color: $form-bg-color;
+
+  // Фоновая картинка пользователя
+  &__background-img {
+    position: absolute;
+    left: 41.856%;
+    bottom: -11.642%;
+    height: 411px;
+    width: 411px;
+  }
+}
