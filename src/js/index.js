@@ -2,6 +2,7 @@ import selectsData from './selects-data.js';
 import fillingSelect from './filling-select.js';
 import createErrorPopup from './create-error-popup.js';
 import addAnimation from './add-animation.js';
+import handlers from './handlers.js';
 
 function singUp() {
   // Все блоки с полями.
@@ -25,5 +26,7 @@ function singUp() {
   registrationFieldBlocks.forEach((tag, index) => {
     addAnimation(tag, 'animation-bubbling', index / 10 + 0.1);
   });
+  // Обработчики
+  handlers();
 }
 singUp();
