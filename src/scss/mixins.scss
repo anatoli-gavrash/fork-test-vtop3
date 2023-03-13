@@ -1,0 +1,7 @@
+// Миксин для добавления троеточия при переполнении текстового блока
+@mixin ellipsis($clamp) {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $clamp;
+}
