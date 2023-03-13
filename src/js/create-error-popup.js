@@ -34,7 +34,7 @@ const createErrorPopup = (input) => {
 
   // Создаём блок и заполняем информацией.
   const newSpan = document.createElement('span');
-  newSpan.className = 'popup-error';
+  newSpan.className = 'popup-error visibility-hidden';
   newSpan.setAttribute('data-link', input.getAttribute('name'));
   newSpan.innerText = errorsData[input.getAttribute('name')].message;
   buildStyles(newSpan, getCoordinates());

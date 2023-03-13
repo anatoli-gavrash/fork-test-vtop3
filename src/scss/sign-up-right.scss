@@ -59,13 +59,14 @@
         flex-basis: 48.865%;
         min-width: 188px;
         min-height: 42px;
-        opacity: 1;
+        opacity: 0;
         background-image: linear-gradient(0deg, $field-dash-color 1px, transparent 1px);
   
         @media (max-width: 586px) {
           flex-basis: 100%;
         }
 
+        // Галочка для валидного поля
         &::after {
           content: '';
           display: block;

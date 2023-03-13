@@ -1,6 +1,7 @@
 /* Функция наполняет select потомками option.
 Принимает тэг select, имя класса для потомков,
 массив имён или начальное число для счетчика, максимальное число для счетчика. */
+
 const fillingSelect = (parent, name = '', value = 0, maxValue = 0) => {
   // Проверка приходящих данных
   if (!HTMLSelectElement.prototype.isPrototypeOf(parent)
@@ -8,8 +9,9 @@ const fillingSelect = (parent, name = '', value = 0, maxValue = 0) => {
       || !Number.isInteger(maxValue)
       || !(typeof name === 'string'))
   {
-    return new TypeError();
+    throw new TypeError();
   }
+  
   // Наполнение родителя тэгами option.
   const isArray = Array.isArray(value);
   for (let i = isArray ? 0 : value; i <= maxValue; i++) {
