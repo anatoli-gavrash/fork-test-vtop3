@@ -8,9 +8,9 @@ const sendForm = (form) => {
     method: 'POST',
     body: form
   }).then((response) => {
-    if (!response.ok) { throw new Error('Server has ' + response.status + ' status.'); }
+    if (!response.ok) { throw new Error('Server has ' + response.status + ' status.') }
   }).catch((error) => {
-    throw new Error('Error: ' + error);
+    throw error;
   });
 };
 
