@@ -27,6 +27,8 @@ import js from './tasks/js.js';
 import fonts from './tasks/fonts.js';
 // Копирует изображения в папку public/images
 import images from './tasks/images.js';
+// Копирует тестовые файлы сервера в папку public/server
+import server from './tasks/server.js';
 // Монитор на основные папки для удобства работы
 const monitor = () => {
   browserSync.init({
@@ -38,9 +40,10 @@ const monitor = () => {
   watch(['./src/js/**'], js).on('change', browserSync.reload);
   watch(['./src/fonts/**'], fonts).on('change', browserSync.reload);
   watch(['./src/images/**'], images).on('change', browserSync.reload);
+  watch(['./server/**'], images).on('change', browserSync.reload);
 };
 // Сборка релиза и разработки.
-const build = series(clean, html, scss, js, fonts, images);
-const dev = series(clean, html, scss, js, fonts, images, monitor);
+const build = series(clean, html, scss, js, fonts, images, server);
+const dev = series(clean, html, scss, js, fonts, images, server, monitor);
 
-export { html, scss, clean, js, fonts, images, monitor, build, dev };
+export { html, scss, clean, js, fonts, images, server, monitor, build, dev };
