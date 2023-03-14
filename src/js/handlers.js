@@ -64,9 +64,11 @@ const handlers = () => {
     const formData = new FormData(form);
     const isFullValid = validation.full(formData);
 
-    // Отправляем форму, если валидация прошла успешно.
+    // Отправляем форму и чистим поля, если валидация прошла успешно.
     if (isFullValid.valid) {
       sendForm(formData);
+      inputCollection.forEach((input) => input.parentElement.classList.remove('valid'));
+      form.reset();
     }
   };
 
