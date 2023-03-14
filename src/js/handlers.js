@@ -3,6 +3,7 @@ import classSwitcher from "./class-switcher.js";
 import showPopup from "./show-popup.js";
 import addAnimation from "./add-animation.js";
 import modalRegistered from "./modal-registered.js";
+import sendForm from "./send-form.js";
 
 // Обработчики событий
 const handlers = () => {
@@ -65,7 +66,7 @@ const handlers = () => {
 
     // Отправляем форму, если валидация прошла успешно.
     if (isFullValid.valid) {
-      
+      sendForm(formData);
     }
   };
 
